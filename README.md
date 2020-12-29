@@ -1,8 +1,8 @@
-# Car-Price-Prediction
+<h1> # Car-Price-Prediction </h1>
 
 
 
-[Thanks to Krish Naik](https://github.com/krishnaik06/Car-Price-Prediction)
+[Inspired by Krish Naik](https://github.com/krishnaik06/Car-Price-Prediction)
 
 ### To run application 
 ``` python app.py ```
