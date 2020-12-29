@@ -7,6 +7,8 @@ import sklearn
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
+import shutil
+
 
 app = Flask(__name__)
 model = pickle.load(open("model/random_forest_regression_model.pkl", "rb"))
@@ -94,9 +96,11 @@ def predict():
         plt.text(0.05,0.95,txt, transform=fig.transFigure, size=12)
         plt.close()
         
-        with PdfPages("report/my_report.pdf") as pdf_pages:
+        with PdfPages("static/my_report.pdf") as pdf_pages:
             pdf_pages.savefig(fig, pad_inches=0.6, bbox_inches="tight")
-        pdf_file =url_for('report',filename ="my_report.pdf")
+
+        shutil.copy2('static/my_report.pdf', 'report/my_report.pdf')
+        pdf_file =url_for('static',filename ="my_report.pdf")
 
         merged_list = tuple(zip(p_years, pred_next_5_years))
         if output < 0:
