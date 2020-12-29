@@ -1,6 +1,8 @@
 # Car-Price-Prediction
 
-## inspired from https://github.com/krishnaik06/Car-Price-Prediction
 
 
-## python app.pycon
+[Thanks to Krish Naik](https://github.com/krishnaik06/Car-Price-Prediction)
+
+### To run application 
+``` python app.py ```
