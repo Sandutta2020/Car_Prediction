@@ -8,6 +8,8 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 import shutil
+import datetime
+now = datetime.datetime.now()
 
 
 app = Flask(__name__)
@@ -41,7 +43,7 @@ def predict():
         else:
             Fuel_Type_Petrol = 0
             Fuel_Type_Diesel = 1
-        Year = 2020 - Year
+        Year = now.year - Year
         Seller_Type_Individual = request.form["Seller_Type_Individual"]
         if Seller_Type_Individual == "Individual":
             Seller_Type_Individual = 1

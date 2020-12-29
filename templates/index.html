@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Price Prediction</title>
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <script src="/static/formvalidation.js"></script>
 </head>
 
 <body>
     <h2>Car Price Prediction</h2>
     <div style="color:green">
-        <form action="{{ url_for('predict')}}" method="post">
+        <form action="{{ url_for('predict')}}" method="post" name = "myForm" onsubmit="return (form_validate());">
             <table>
             <tr><td>Purchased Year </td><td><input id="first" name="Year" type="number "></td></tr>
             <tr><td>What is the Showroom Price?(In lakhs)</td><td><input id="second" name="Present_Price" required="required"></td></tr>
@@ -33,9 +34,7 @@
             <tr><td><button id="sub" type="submit ">Calculate</button></td></tr>
         </table>
         </form>
-
-
-
+        {% if prediction_text %}
         <br><br><h3>{{ prediction_text }}<h3>
             <table align="center">
                 <tr><th align="center">Next 5 year Prediction</th></tr>
@@ -45,7 +44,8 @@
                <tr><td>{{ page[0] }} :</td><td>{{ page[1] }}</td></tr> 
                 {% endfor %}
             </table>
-            <a href={{ pdf_file }} download>Download Report</a>
+            <a href={{ pdf_file }} download>Download 5 years Trend Report</a>
+            {% endif %}
     </div>
 
 </body>
